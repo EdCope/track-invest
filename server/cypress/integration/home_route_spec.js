@@ -3,4 +3,8 @@ describe('Navigate to /', () => {
     cy.visit('/');
     cy.contains('Track Invest');
   })
+  it('has a price displayed on the page', () => {
+    cy.visit('/');
+    cy.get('[data-cy=price]').should("contain", "400");
+  })
 })
