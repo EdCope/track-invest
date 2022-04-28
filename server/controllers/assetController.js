@@ -1,8 +1,9 @@
+const axios = require('axios');
+
 const AssetController = {
   GetPrice: async (req, res) => {
-    //Needs to grab external data
-    console.log(req.params);
-    res.json({price: 400});
+    const response = await axios.get(`https://api.twelvedata.com/price?symbol=${req.params.share}&apikey=demo`);
+    res.json({price: response.data.price});
   }
 }
 
