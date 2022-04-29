@@ -1,8 +1,14 @@
 const request = require('supertest');
 const app = require('../../app');
+const User = require('../../lib/userModel')
 
 describe('POST /users', () => {
   it('creates a new user', async () => {
+    jest
+      .spyOn(User, 'createUser') 
+      .mockImplementationOnce(() => {
+        return { username: 'test' }
+      })
     const response = await request(app).post('/users/new').send({
       username: 'test',
     });

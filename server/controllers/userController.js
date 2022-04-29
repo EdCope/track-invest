@@ -1,6 +1,10 @@
+const mongoose = require('mongoose');
+const User = require('../lib/userModel')
+
 const UserController = {
   New: async (req,res) => {
-    res.json({ message: `${req.body.username} user created`});
+    const user = await User.createUser(req.body.username);
+    res.json({ message: `${user.username} user created`});
   }
 }
 
