@@ -9,10 +9,10 @@ const User = require('../userModel');
 
 describe('User Model', () => {
   beforeAll(async () => {
-    await User.remove({});
+    await User.deleteMany({});
   })
   afterEach(async () => {
-    await User.remove({});
+    await User.deleteMany({});
   })
   afterAll(async () => {
     await mongoose.connection.close();
