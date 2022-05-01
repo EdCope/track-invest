@@ -9,7 +9,7 @@ describe('User Model', () => {
     await User.deleteMany({});
   })
   
-  it('module exists', () => {
+  it('model exists', () => {
     expect(User).toBeDefined();
   })
 
