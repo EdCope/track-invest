@@ -1,10 +1,4 @@
-const mongoose = require('mongoose');
-const testDB = 'mongodb://localhost/track-invest_test';
-mongoose.connect(testDB, {
-  useNewUrlParser: true,
-  useUnifiedTopology:true
-});
-
+require('../../mongodb_helper');
 const User = require('../userModel');
 
 describe('User Model', () => {
@@ -14,10 +8,8 @@ describe('User Model', () => {
   afterEach(async () => {
     await User.deleteMany({});
   })
-  afterAll(async () => {
-    await mongoose.connection.close();
-  })
-  it('module exists', () => {
+  
+  it('model exists', () => {
     expect(User).toBeDefined();
   })
 

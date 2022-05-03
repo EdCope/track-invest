@@ -1,3 +1,9 @@
 <h1>{{title}}</h1>
 <p>{{title}}</p>
 <div data-cy="price">Price: {{price}}</div>
+
+<form action="/asset/new" method="post" target="_blank">
+  <input type="text" id="trackerSymbol" name="tickername">
+  <label for="trackerSymbol">Enter Tracker:</label>
+  <input type="submit" value="Create Tracker">
+</form>
