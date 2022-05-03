@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../app');
-const User = require('../../lib/userModel')
+const User = require('../../lib/user')
 
 describe('POST /users', () => {
   it('creates a new user', async () => {

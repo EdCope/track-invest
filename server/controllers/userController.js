@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const User = require('../lib/userModel')
+const User = require('../lib/user')
 
 const UserController = {
   New: async (req,res) => {
