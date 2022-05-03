@@ -1,6 +1,6 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
-const Asset = require('../lib/assetModel');
+const Asset = require('../lib/asset/assetModel');
 
 const AssetController = {
   New: async (req, res) => {

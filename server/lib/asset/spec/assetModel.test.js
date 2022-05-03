@@ -1,4 +1,4 @@
-require('./mongodb_helper');
+require('../../mongodb_helper');
 const Asset = require('../assetModel');
 
 describe('Asset Model', () => {

@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../app');
-const Asset = require('../../lib/assetModel');
+const Asset = require('../../lib/asset/assetModel');
 
 describe('GET /asset/:share', () => {
   it('retrieves the current price of share AAPL', async () => {
