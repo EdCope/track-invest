@@ -6,6 +6,7 @@ const User = require('../lib/user/userModel');
 const AssetController = {
   New: async (req, res) => {
     try{
+      if(req.body.tickername.length <= 1) throw 'error';
       const firstUserInDB = await User.findOne({})
       const asset = await Asset.createTracker(req.body.tickername, firstUserInDB._id);
       res.json({ message: `${asset.tickername} tracker created` });

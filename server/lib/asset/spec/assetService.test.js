@@ -1,6 +1,5 @@
 const Asset = require('../assetModel');
 
-
 describe('AssetService', () => {
   describe('createTracker', () => {
     it('returns the created Tracker', async () => {
@@ -11,7 +10,7 @@ describe('AssetService', () => {
 
       Asset.prototype.save = jest.fn().mockImplementation(()=> {})
 
-      const asset  = await Asset.createTracker('test', UserMock.username);
+      const asset  = await Asset.createTracker('test', UserMock._id);
       expect(asset.tickername).toEqual('test');
     })
   })

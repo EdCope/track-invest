@@ -35,4 +35,10 @@ describe('POST /asset/new', () => {
     expect(response.statusCode).toBe(200);
     expect(response.body.message).toBe('aapl tracker created');
   })
+  it('responds with an error if tickername is empty', async () => {
+    const response = await request(app).post('/asset/new').send({
+      tickername: ''
+    })
+    expect(response.body.message).toBe('error');
+  })
 })
