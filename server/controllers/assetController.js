@@ -1,11 +1,13 @@
 const axios = require('axios');
 const mongoose = require('mongoose');
 const Asset = require('../lib/asset/assetModel');
+const User = require('../lib/user/userModel');
 
 const AssetController = {
   New: async (req, res) => {
     try{
-      const asset = await Asset.createTracker(req.body.tickername);
+      const firstUserInDB = await User.findOne({})
+      const asset = await Asset.createTracker(req.body.tickername, firstUserInDB._id);
       res.json({ message: `${asset.tickername} tracker created` });
     } catch{
       res.json({ message: 'error' });
