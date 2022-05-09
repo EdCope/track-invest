@@ -42,3 +42,18 @@ describe('POST /asset/new', () => {
     expect(response.body.message).toBe('error');
   })
 })
+
+describe('GET /asset/trackers', () => {
+  it('gets all the trackers of a user', async () => {
+    Asset.find = jest.fn().mockResolvedValue(
+      [{ "tickername": "aapl" },
+      { "tickername": "qqq" }]
+    );
+    const response = await request(app).get('/asset/trackers').send({
+      user: 'sampleid'
+    });
+    expect(response.statusCode).toBe(200);
+    expect(response.body.length).toEqual(2);
+    expect(response.body[1].tickername).toEqual('qqq');
+  })
+})

@@ -14,4 +14,5 @@ describe('AssetService', () => {
       expect(asset.tickername).toEqual('test');
     })
   })
+
 })

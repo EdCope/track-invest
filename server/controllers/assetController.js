@@ -24,6 +24,10 @@ const AssetController = {
     } catch (err){
       res.json({price: err});
     }
+  },
+  Trackers: async (req, res) => {
+    const trackers = await Asset.find({user: req.body.user})
+    res.json(trackers);
   }
 }
 
