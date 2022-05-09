@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
+const AssetServicePlugin = require('./assetService');
 
 const AssetSchema = new mongoose.Schema({
   tickername: String,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
-AssetSchema.statics.createTracker = async function(tickerName){
-  const newAsset = new this({
-    tickername: tickerName, 
-  });
-  await newAsset.save();
-  return newAsset;
-}
+AssetSchema.plugin(AssetServicePlugin);
 
 const Asset = mongoose.model('Asset', AssetSchema);
 
