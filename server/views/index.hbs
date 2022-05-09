@@ -1,10 +1,9 @@
 <h1>{{title}}</h1>
 <p>{{title}}</p>
-<div data-cy="price">Price: {{price}}</div>
-
-<div>
-  Current User id: {{user}}
-</div>
+{{#each trackers}}
+  <div data-cy="name">Ticker: {{tickername}}</div>
+  <div data-cy="price">Price: {{price}}</div>
+{{/each}}
 
 <form action="/asset/new" method="post" target="_blank">
   <input type="text" id="trackerSymbol" name="tickername">
