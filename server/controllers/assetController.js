@@ -28,7 +28,12 @@ const AssetController = {
   Trackers: async (req, res) => {
     const trackers = await Asset.find({user: req.body.user})
     res.json(trackers);
+  },
+  NewTransaction: async (req, res) => {
+    const updatedAsset = await Asset.addTransaction(req.body.value, req.body.assetId);
+    res.json({'transactions': updatedAsset.transactions});
   }
+
 }
 
 module.exports = AssetController;

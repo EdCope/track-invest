@@ -57,3 +57,21 @@ describe('GET /asset/trackers', () => {
     expect(response.body[1].tickername).toEqual('qqq');
   })
 })
+
+describe('POST /asset/transaction/new', () => {
+  it('adds a transaction to a tracker', async () => {
+    Asset.addTransaction = jest.fn().mockResolvedValue({
+      tickername: 'aapl',
+      transactions: [5.00, 5.50, 21.99],
+      user: 'testid',
+      _id: 'testid',
+    });
+    const response = await request(app).post('/asset/transaction/new').send({
+      value: 21.99,
+      assetId: 'testid'
+    });
+    expect(response.statusCode).toBe(200);
+    expect(response.body.transactions.length).toEqual(3);
+    expect(response.body.transactions).toEqual([5.00, 5.50, 21.99]);
+  });
+});
