@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
     const trackerPrice = await axios.get(`http://localhost:3000/asset/${tracker.tickername}`)
     return {...tracker, price: trackerPrice.data.price};
   }));
-  //const priceReq = await axios.get('http://localhost:3000/asset/aapl');
   
   res.render('index', { title: 'Track Invest', trackers: track });
 });

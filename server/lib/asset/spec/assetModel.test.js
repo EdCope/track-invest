@@ -24,11 +24,13 @@ describe('Asset Model', () => {
   
     const tracker = new Asset({
       tickername: 'test',
+      transaction: [],
       user: user.id,
     });
     await tracker.save();
     const find = await Asset.findOne({ tracker: 'test'});
     expect(find.tickername).toEqual('test');
+    expect(find.transactions).toEqual([]);
     expect(find.user).toEqual(user._id);
   });
 })
